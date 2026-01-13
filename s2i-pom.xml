@@ -78,7 +78,7 @@
       <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-openshift</artifactId>
-  </dependency>
+    </dependency>
   </dependencies>
    <build>
         <plugins>
