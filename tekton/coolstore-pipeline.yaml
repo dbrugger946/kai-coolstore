@@ -23,7 +23,7 @@ spec:
             value: task 
           - name: name
             value: git-clone 
-          - name: 
+          - name: namespace
             value: openshift-pipelines
       params: 
         - name: URL
@@ -35,4 +35,52 @@ spec:
       workspaces: 
         - name: output 
           workspace: app-build
-
+    - name: maven-build
+      taskRef:
+          resolver: cluster 
+          params:
+            - name: kind
+              value: task 
+            - name: name
+              value: maven 
+            - name: namespace
+              value: openshift-pipelines
+      params:
+        - name: MAVEN_IMAGE
+          value: 'registry.access.redhat.com/ubi9/openjdk-21:1.20'
+        - name: GOALS
+          value:
+            - '-B'
+            - '-v'
+            - clean
+            - package
+            - '-DskipTests'
+            - '-Dmaven.wagon.http.ssl.insecure=true'
+            - '--no-transfer-progress'
+      workspaces:
+        - name: source
+          workspace: app-build
+        - name: maven_settings
+          workspace: maven-settings
+      runAfter:
+        - fetch-repository
+    - name: buildah-build-push
+      taskRef:
+        resolver: cluster
+        params:
+          - name: kind
+            value: task
+          - name: name 
+            value: buildah 
+          - name: namespace 
+            value: openshift-pipelines 
+      params:
+        - name: DOCKERFILE
+          value: 'src/main/docker/Dockerfile.jvm'
+        - name: IMAGE 
+          value: 'quay.io/dbrugger946/quarkus-coolstore:cicd.0.5'
+      workspaces: 
+        - name: source
+          workspace: app-build
+      runAfter:
+        - maven-build 
