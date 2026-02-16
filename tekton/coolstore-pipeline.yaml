@@ -54,7 +54,7 @@ spec:
       workspaces:
         - name: source
           workspace: app-build
-        - name: maven_settings
+        - name: maven-settings
           workspace: maven-settings
       runAfter:
         - fetch-repository
