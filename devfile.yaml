@@ -4,6 +4,6 @@ metadata:
 components:
   - name: kai-dev-container
     container:
-      image: quay.io/dbrugger946/dls-devspaces:latest
+      image: quay.io/dbrugger946/dls-devspaces:ubi10-latest
       memoryLimit: 4Gi
       mountSources: true
