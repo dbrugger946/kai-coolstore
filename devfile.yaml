@@ -6,3 +6,4 @@ components:
     container:
       image: quay.io/dbrugger946/dls-devspaces:latest
       memoryLimit: 4Gi
+      mountSources: true
