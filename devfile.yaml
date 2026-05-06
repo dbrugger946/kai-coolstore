@@ -12,8 +12,8 @@ components:
       vscode-extensions:
         - redhat.java
         - redhat.mta-core
-        - redhat.mta-go
         - redhat.mta-java
-        - redhat.mta-csharp
-        - redhat.mta-javascript
-        - redhat.mta-vscode-extension
+      #  - redhat.mta-go     
+      #  - redhat.mta-csharp
+      #  - redhat.mta-javascript
+      #  - redhat.mta-vscode-extension
