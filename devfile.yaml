@@ -4,12 +4,11 @@ metadata:
 components:
   - name: kai-dev-container
     container:
-      image: quay.io/dbrugger946/dls-devspaces:upstream-0.5.16
+      image: quay.io/dbrugger946/dls-devspaces:mta-8.1.2
       memoryLimit: 4Gi
       mountSources: true
     attributes:
       # This ensures the extensions are installed in the VS Code editor
       vscode-extensions:
         - redhat.java
-        - konveyor.konveyor-core
-        - konveyor.konveyor-java
+        - redhat.mta-vscode-extension
