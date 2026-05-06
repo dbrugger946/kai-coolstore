@@ -4,7 +4,7 @@ metadata:
 components:
   - name: kai-dev-container
     container:
-      image: quay.io/dbrugger946/dls-devspaces:mta-8.1.2
+      image: quay.io/dbrugger946/dls-devspaces:mta-java-8.1.2
       memoryLimit: 4Gi
       mountSources: true
     attributes:
@@ -13,7 +13,3 @@ components:
         - redhat.java
         - redhat.mta-core
         - redhat.mta-java
-      #  - redhat.mta-go     
-      #  - redhat.mta-csharp
-      #  - redhat.mta-javascript
-      #  - redhat.mta-vscode-extension
